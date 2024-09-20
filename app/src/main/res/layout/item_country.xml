@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:backgroundTint="@color/blue10"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/blue_border"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/flagImage"
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/countryNameOfficial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:maxHeight="170dp"
+            android:paddingHorizontal="8dp"
+            android:text="Official name:"
+            android:textColor="@color/blue50"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/flagImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameOfficial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:maxHeight="170dp"
+            android:paddingHorizontal="8dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/flagImage"
+            app:layout_constraintTop_toBottomOf="@+id/countryNameOfficial" />
+
+        <TextView
+            android:id="@+id/countryNameCommon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:maxHeight="170dp"
+            android:paddingHorizontal="8dp"
+            android:text="Common name:"
+            android:textColor="@color/blue50"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/flagImage"
+            app:layout_constraintTop_toBottomOf="@+id/nameOfficial" />
+
+        <TextView
+            android:id="@+id/nameCommon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:maxHeight="170dp"
+            android:paddingHorizontal="8dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/flagImage"
+            app:layout_constraintTop_toBottomOf="@+id/countryNameCommon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
