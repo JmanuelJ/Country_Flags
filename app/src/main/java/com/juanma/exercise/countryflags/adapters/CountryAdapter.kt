@@ -8,7 +8,7 @@ import com.juanma.exercise.countryflags.R
 import com.juanma.exercise.countryflags.models.CountriesResponseItem
 import com.juanma.exercise.countryflags.ui.fragments.HomeFragmentDirections
 
-class CountryAdapter(private val countries: List<CountriesResponseItem>) :
+class CountryAdapter(private var countries: List<CountriesResponseItem>) :
     RecyclerView.Adapter<CountryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
@@ -29,5 +29,10 @@ class CountryAdapter(private val countries: List<CountriesResponseItem>) :
                 it.findNavController().navigate(direction)
             }
         }
+    }
+
+    fun updateCountries(countries: List<CountriesResponseItem>){
+        this.countries = countries
+        notifyDataSetChanged()
     }
 }
