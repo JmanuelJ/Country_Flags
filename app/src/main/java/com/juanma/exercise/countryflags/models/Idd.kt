@@ -1,6 +1,8 @@
 package com.juanma.exercise.countryflags.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Idd(
-    val root: String,
-    val suffixes: List<String>
+    @SerializedName("root")val root: String,
+    @SerializedName("suffixes")val suffixes: List<String>
 )
