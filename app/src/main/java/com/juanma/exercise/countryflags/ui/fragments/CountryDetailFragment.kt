@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.juanma.exercise.countryflags.R
 import com.juanma.exercise.countryflags.databinding.FragmentCountryDetailBinding
+import com.juanma.exercise.countryflags.models.CountryInfoResponseItem
 import com.juanma.exercise.countryflags.ui.MainActivity
 import com.juanma.exercise.countryflags.ui.viewmodel.CountryViewModel
 import com.juanma.exercise.countryflags.util.Resource
@@ -20,6 +22,7 @@ class CountryDetailFragment : Fragment(R.layout.fragment_country_detail) {
     private val binding get() = detailBinding!!
     private lateinit var countryViewModel: CountryViewModel
     private val args: CountryDetailFragmentArgs by navArgs()
+    private lateinit var information: CountryInfoResponseItem
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +39,15 @@ class CountryDetailFragment : Fragment(R.layout.fragment_country_detail) {
 
         getInfo()
         checkInfo()
+        onClickViewMap()
+    }
+
+    private fun onClickViewMap() {
+
+        binding.mapBtn.setOnClickListener {
+            val direction = CountryDetailFragmentDirections.actionDetailFragmentToViewMap(information.maps.googleMaps)
+            it.findNavController().navigate(direction)
+        }
     }
 
     override fun onDestroy() {
@@ -63,7 +75,7 @@ class CountryDetailFragment : Fragment(R.layout.fragment_country_detail) {
                 }
 
                 is Resource.Success -> {
-                    val information = response.data!![0]
+                    information = response.data!![0]
                     binding.apply {
                         Glide.with(requireActivity()).load(information.flags.png).into(flagImage)
                         nameOfficial.text = information.name.official
