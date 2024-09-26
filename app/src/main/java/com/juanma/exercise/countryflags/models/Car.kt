@@ -1,6 +1,8 @@
 package com.juanma.exercise.countryflags.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Car(
-    val side: String,
-    val signs: List<String>
+    @SerializedName("side")val side: String,
+    @SerializedName("signs")val signs: List<String>
 )

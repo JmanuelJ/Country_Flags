@@ -1,6 +1,8 @@
 package com.juanma.exercise.countryflags.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Maps(
-    val googleMaps: String,
-    val openStreetMaps: String
+    @SerializedName("googleMaps")val googleMaps: String,
+    @SerializedName("openStreetMaps")val openStreetMaps: String
 )

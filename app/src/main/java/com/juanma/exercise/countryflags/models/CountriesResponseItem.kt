@@ -1,6 +1,8 @@
 package com.juanma.exercise.countryflags.models
 
+import com.google.gson.annotations.SerializedName
+
 data class CountriesResponseItem(
-    val flags: Flags,
-    val name: Name
+    @SerializedName("flags")val flags: Flags,
+    @SerializedName("name")val name: Name
 )

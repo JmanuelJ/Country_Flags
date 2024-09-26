@@ -1,6 +1,8 @@
 package com.juanma.exercise.countryflags.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Eng(
-    val f: String,
-    val m: String
+    @SerializedName("f")val f: String,
+    @SerializedName("m")val m: String
 )

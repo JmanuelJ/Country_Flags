@@ -1,5 +1,7 @@
 package com.juanma.exercise.countryflags.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Gini(
-    val `2018`: Double
+    @SerializedName("`2018`")val gini: Double
 )
